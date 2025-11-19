@@ -1,3 +1,4 @@
+<img width="1280" height="640" alt="inboxonly-open-graph" src="https://github.com/user-attachments/assets/790ea3d1-9faa-442b-a76a-24ac8131d389" />
 
 # IG Inbox Only
 A minimal browser extension that forces Instagram to open in your Direct Inbox and blocks all distracting navigation like the feed, explore, reels, or profiles.
