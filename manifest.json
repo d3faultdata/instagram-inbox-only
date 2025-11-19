@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Inbox Focus",
+  "version": "1.2.1",
+  "description": "Always open Instagram on DMs and hide distractions.",
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://www.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
