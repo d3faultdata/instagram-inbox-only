@@ -1,5 +1,3 @@
-<img width="1280" height="640" alt="inboxonly-open-graph" src="https://github.com/user-attachments/assets/790ea3d1-9faa-442b-a76a-24ac8131d389" />
-
 # Inbox Only
 
 A browser extension that locks social sites to their messaging pages. Instagram
