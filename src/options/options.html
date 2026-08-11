@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Inbox Only — settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Inbox Only</h1>
+        <p class="lede">
+          Guarded sites open on their inbox and stay there. Tightening the rules
+          takes effect immediately. Loosening them waits out the commitment
+          delay.
+        </p>
+      </header>
+
+      <section id="pending-section" hidden>
+        <h2>Pending changes</h2>
+        <ul id="pending-list"></ul>
+      </section>
+
+      <section>
+        <h2>Sites</h2>
+        <div id="sites"></div>
+      </section>
+
+      <section>
+        <h2>Add a site</h2>
+        <p class="hint">
+          Block a site except for the paths you list. Paths are prefixes, so
+          <code>/messages</code> also allows <code>/messages/t/123</code>.
+        </p>
+        <form id="add-site">
+          <label>
+            Name
+            <input name="label" required placeholder="Reddit" />
+          </label>
+          <label>
+            Domain
+            <input name="host" required placeholder="reddit.com" />
+          </label>
+          <label>
+            Landing page
+            <input name="home" required placeholder="/message/inbox" />
+          </label>
+          <label>
+            Allowed paths <span class="hint">comma separated</span>
+            <input name="allow" placeholder="/message, /chat" />
+          </label>
+          <button type="submit">Add site</button>
+          <p class="error" id="add-error" hidden></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Commitment delay</h2>
+        <p class="hint">
+          How long any loosening change waits before it applies. Raising this
+          is immediate; lowering it is itself subject to the current delay.
+        </p>
+        <form id="delay-form">
+          <label>
+            Minutes
+            <input name="minutes" type="number" min="5" step="5" required />
+          </label>
+          <button type="submit">Update</button>
+        </form>
+      </section>
+
+      <footer>
+        <p class="hint">
+          This extension cannot stop you disabling it from your browser's
+          extensions page. If you want a real lock, force-install it with an
+          enterprise policy — see the README.
+        </p>
+      </footer>
+    </main>
+    <script src="../common/matcher.js"></script>
+    <script src="../common/config.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

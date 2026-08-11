@@ -1,26 +1,35 @@
 {
   "manifest_version": 3,
-  "name": "Instagram Inbox Focus",
-  "version": "1.2.1",
-  "description": "Always open Instagram on DMs and hide distractions.",
+  "name": "Inbox Only",
+  "version": "2.0.0",
+  "description": "Locks Instagram, Facebook and any site you choose to their messaging pages. Facebook Marketplace stays open.",
   "permissions": [
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+    "scripting",
+    "storage",
+    "alarms",
+    "webNavigation"
   ],
   "host_permissions": [
-    "*://www.instagram.com/*"
+    "*://*.instagram.com/*",
+    "*://instagram.com/*",
+    "*://*.facebook.com/*",
+    "*://facebook.com/*",
+    "*://*.messenger.com/*",
+    "*://messenger.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background/service-worker.js"
   },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://www.instagram.com/*"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "run_at": "document_idle"
-    }
-  ]
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "minimum_chrome_version": "102"
 }
